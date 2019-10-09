@@ -20,21 +20,24 @@ public class HotelTest {
     @Before
     public void setUp(){
         hotel = new Hotel();
-        bedroom1 = new Bedroom(101, 1, "Single");
-        bedroom2 = new Bedroom(102, 2, "Double");
-        bedroom3 = new Bedroom(103, 3, "Family");
+
+        bedroom1 = new Bedroom(101, 1, "Single", 8000);
+        bedroom2 = new Bedroom(102, 2, "Double", 10000);
+        bedroom3 = new Bedroom(103, 3, "Family", 50000);
+
         guest1 = new Guest("Katie");
         guest2 = new Guest("Alex");
         guest3 = new Guest("Sky");
+
         guests = new ArrayList<Guest>();
 
-        booking1 = new Booking(guests, bedroom1, "CheckedOut");
-        booking2 = new Booking(guests, bedroom2, "Booked");
-        booking3 = new Booking(guests, bedroom3, "CheckedOut");
+        booking1 = new Booking(guests, bedroom1, 3);
+        booking2 = new Booking(guests, bedroom2, 2);
+        booking3 = new Booking(guests, bedroom3, 1);
 
         hotel.addRoom(bedroom1);
         hotel.addRoom(bedroom2);
-        guests.add(guest2);
+        guests.add(guest1);
     }
 
     @Test
@@ -67,7 +70,7 @@ public class HotelTest {
 
     @Test
     public void canCreateNewBooking() {
-        hotel.createNewBooking(guests, bedroom1, "Booked");
+        hotel.createNewBooking(guests, bedroom1, 2);
         assertEquals(1, hotel.countBookings());
     }
 
@@ -76,5 +79,16 @@ public class HotelTest {
         assertEquals(bedroom1, hotel.getRoom(101));
     }
 
+    @Test
+    public void cantCreateNewBookingRoomFull() {
+        guests.add(guest2);
+        hotel.createNewBooking(guests, bedroom1, 2);
+        assertEquals(0, hotel.countBookings());
+    }
+
+    @Test
+    public void canGetVacantBedrooms() {
+
+    }
 }
 

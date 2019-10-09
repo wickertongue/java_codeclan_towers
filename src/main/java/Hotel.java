@@ -35,8 +35,10 @@ public class Hotel {
         guests.add(guest);
     }
 
-    public void createNewBooking(ArrayList<Guest> guests, Bedroom bedroom, String status) {
-        addBooking(new Booking(guests, bedroom, status));
+    public void createNewBooking(ArrayList<Guest> guests, Bedroom bedroom, int nights) {
+        if (guests.size() <= bedroom.getCapacity()) {
+            addBooking(new Booking(guests, bedroom, nights));
+        } // throw an error?
     }
 
     public Bedroom getRoom(int roomNumber) {
@@ -50,6 +52,21 @@ public class Hotel {
         return result;
     }
 
+    public void updateBookingCheckedIn(Booking booking) {
+        booking.checkIn();
+    }
 
+    public void updateBookingCheckedOut(Booking booking) {
+        booking.checkOut();
+    }
 
+    public ArrayList<Bedroom> getVacantBedrooms() {
+        ArrayList<Bedroom> vacantBedrooms = new ArrayList<Bedroom>(bedrooms);
+        for (Booking booking : bookings) {
+            if (booking.getCheckedInStatus() && !booking.getCheckedOutStatus()) {
+                vacantBedrooms.remove(booking.getBedroom());
+            }
+        }
+        return vacantBedrooms;
+    }
 }

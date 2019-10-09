@@ -4,11 +4,13 @@ public class Bedroom {
     private int roomNumber;
     private int capacity;
     private String roomType;
+    private int roomRate;
 
-    public Bedroom(int roomNumber, int capacity, String roomType) {
+    public Bedroom(int roomNumber, int capacity, String roomType, int roomRate) {
         this.roomNumber = roomNumber;
         this.capacity = capacity;
         this.roomType = roomType;
+        this.roomRate = roomRate;
     }
 
     public int getRoomNumber() {
@@ -21,5 +23,9 @@ public class Bedroom {
 
     public String getRoomType() {
         return roomType;
+    }
+
+    public int getRoomRate() {
+        return roomRate;
     }
 }
