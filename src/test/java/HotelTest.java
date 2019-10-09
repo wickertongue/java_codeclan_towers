@@ -2,6 +2,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class HotelTest {
     private Hotel hotel;
     private Bedroom bedroom1;
@@ -10,6 +12,10 @@ public class HotelTest {
     private Guest guest1;
     private Guest guest2;
     private Guest guest3;
+    private ArrayList<Guest> guests;
+    private Booking booking1;
+    private Booking booking2;
+    private Booking booking3;
 
     @Before
     public void setUp(){
@@ -20,8 +26,15 @@ public class HotelTest {
         guest1 = new Guest("Katie");
         guest2 = new Guest("Alex");
         guest3 = new Guest("Sky");
+        guests = new ArrayList<Guest>();
+
+        booking1 = new Booking(guests, bedroom1, "CheckedOut");
+        booking2 = new Booking(guests, bedroom2, "Booked");
+        booking3 = new Booking(guests, bedroom3, "CheckedOut");
+
         hotel.addRoom(bedroom1);
         hotel.addRoom(bedroom2);
+        guests.add(guest2);
     }
 
     @Test
@@ -34,5 +47,34 @@ public class HotelTest {
         hotel.addRoom(bedroom3);
         assertEquals(3, hotel.countRooms());
     };
+
+    @Test
+    public void canCountBookings() {
+        assertEquals(0, hotel.countBookings());
+    }
+
+    @Test
+    public void canAddBooking() {
+        hotel.addBooking(booking1);
+        assertEquals(1, hotel.countBookings());
+    }
+
+    @Test
+    public void countGuests() {
+        hotel.addGuest(guest1);
+        assertEquals(1, hotel.countGuests());
+    }
+
+    @Test
+    public void canCreateNewBooking() {
+        hotel.createNewBooking(guests, bedroom1, "Booked");
+        assertEquals(1, hotel.countBookings());
+    }
+
+    @Test
+    public void canGetRoom() {
+        assertEquals(bedroom1, hotel.getRoom(101));
+    }
+
 }
 
