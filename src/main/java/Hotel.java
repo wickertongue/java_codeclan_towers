@@ -15,10 +15,6 @@ public class Hotel {
         bedrooms.add(bedroom);
     }
 
-    public void addGuestToRoom(Guest guest, Bedroom bedroom) {
-        bedroom.addGuest(guest);
-    }
-
     public Bedroom getRoom(int roomNumber) {
         Bedroom result = null;
         for (Bedroom bedroom : bedrooms) {
@@ -30,7 +26,4 @@ public class Hotel {
         return result;
     }
 
-    public void checkIn(Guest guest, int roomNumber) {
-        addGuestToRoom(guest, getRoom(roomNumber));
-    }
 }

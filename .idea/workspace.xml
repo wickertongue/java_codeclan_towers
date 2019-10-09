@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="300c8b8d-d61f-44f1-9d46-9a921b484f4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Hotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/HotelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bedroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bedroom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Hotel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +41,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HotelTest">
+  <component name="RunManager" selected="JUnit.BedroomTest">
     <configuration name="BedroomTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="codeclan_towers_lab" />
       <option name="PACKAGE_NAME" value="" />
@@ -72,8 +71,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HotelTest" />
         <item itemvalue="JUnit.BedroomTest" />
+        <item itemvalue="JUnit.HotelTest" />
         <item itemvalue="JUnit.GuestTest" />
       </list>
     </recent_temporary>

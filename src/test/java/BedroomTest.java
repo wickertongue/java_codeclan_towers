@@ -28,15 +28,4 @@ public class BedroomTest {
     public void hasRoomType() {
         assertEquals("Double", bedroom.getRoomType());
     }
-
-    @Test
-    public void canCountGuests() {
-        assertEquals(0, bedroom.countGuests());
-    }
-
-    @Test
-    public void canAddGuests() {
-        bedroom.addGuest(guest);
-        assertEquals(1, bedroom.countGuests());
-    }
 }
